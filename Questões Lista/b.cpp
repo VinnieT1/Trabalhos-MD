@@ -6,7 +6,7 @@ using namespace std;
 int main(void) {
 
   //inteiro máximo que vou checar:
-  int maxNum = 80000000; 
+  int maxNum = 90000000; 
   /*
   obs: consegui em 43 segundos no meu PC,
   talvez se não imprimisse pelo terminal fosse
@@ -28,11 +28,14 @@ int main(void) {
   }
 
   //basta entao, printar os primos:
+  int contador = 0;
   for(int i = 1; i <= maxNum; i++) {
-    if(eh_primo[i])
+    if(eh_primo[i]) {
+      contador++;
       printf("%d\n", i);
+    }
   }
-
+  printf("\nQuantidade de primos encontrados: %d\n", contador);
   //Time complexity: O(n)
   //Space complexity: O(n)
 }
