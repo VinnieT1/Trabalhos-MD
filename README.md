@@ -9,3 +9,8 @@ Vinícius Teixeira
 
 ## Professor:
 Bruno Almeida Pimentel
+
+## Códigos:
+[![portfolio](https://katherinempeterson.com/)
+[![linkedin](https://www.linkedin.com/)
+[![twitter](https://twitter.com/)
