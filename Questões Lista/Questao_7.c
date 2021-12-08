@@ -32,7 +32,7 @@ int main() {
     return 0;
 }
 
-//explicacao na resolucao da questao 6
+//explicacao na resolucao da questao 6.
 int mdc_diofantino(int a, int b, int *s, int *t) {
     if(b == 0) {
         *s = 1;
