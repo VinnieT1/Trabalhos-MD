@@ -23,7 +23,8 @@ int main() {
   //printando:
   printf("Fatores primos de %d: ", num);
   for(int i = 0; i < (int) fatores_primos.size(); i++) {
-    if(i > 0) printf(", ");
+    if(i == (int) fatores_primos.size() - 1) printf(" e ");
+    else if(i > 0) printf(", ");
     printf("%d", fatores_primos[i]);
   }
   printf("\n");
