@@ -15,14 +15,14 @@ int main() {
 
     //encontrando o valor de s e o MDC (explicacao da funcao na resolucao da questao 6):
     int MDC = mdc_diofantino(a, b, &s, &t);
-	
+    
 	//verificando se MDC != 1:
-	if (MDC != 1){
-		printf("Nao ha inverso de %d mod %d.\n", a, b);
-		return 0;
-	}
-	
-	//caso MDC == 1, o programa continua...
+    if (MDC != 1){
+        printf("Nao ha inverso de %d mod %d.\n", a, b);
+        return 0;
+    }
+    
+    //se o MDC eh 1, o programa continua...
     //escolhendo o inverso de a mod b entre 0 e b:
     while (s < 0) s += b;
     if (s >= b) s = s % b;
