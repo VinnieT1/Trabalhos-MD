@@ -12,5 +12,8 @@ Bruno Almeida Pimentel
 
 ## Códigos:
 * [Questão 1](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_1.c)
-* [linkedin](https://www.linkedin.com/)
-* [twitter](https://twitter.com/)
+* [Questão 2](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_2.cpp)
+* [Questão 3](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_3.cpp)
+* [Questão 4](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_4.cpp)
+* [Questão 5](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_5.c)
+
