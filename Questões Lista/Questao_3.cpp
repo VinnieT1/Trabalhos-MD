@@ -63,5 +63,5 @@ vector<int> pegar_fatores_primos(int num) {
   retorno, para ir adicionando os fatores 
   primos ao vetor;
   */
- return retorno;
+  return retorno;
 }
