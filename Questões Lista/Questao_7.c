@@ -23,6 +23,7 @@ int main() {
     return 0;
 }
 
+//encontra o inverso de a mod b:
 int inverso_modulo(int a, int b){
     //declarando os coeficientes s e t:
     int s, t;
