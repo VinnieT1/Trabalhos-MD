@@ -33,7 +33,7 @@ int main() {
 void decompor(int num, vector<int> &vetor) {
   if(num == 1) return;
   int found = 0; //booleana para saber se achei ou não o primo;
-  for(int i = 2; !found && i*i < num; i++) {
+  for(int i = 2; !found && i*i <= num; i++) {
     if(num % i == 0) {
       vetor.push_back(i);
       decompor(num / i, vetor);
