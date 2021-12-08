@@ -13,7 +13,7 @@ int calcular_mdc (int a, int b)
 
 int main ()
 {
-    int a,b;
+    int a,b;//2 variáveis inteiras que deseja calcular o máximo divisor comum por meio do algoritmo de euclides
     printf("Digite 2 números para calcular o MDC: \n");
     scanf("%d %d", &a,&b);
     printf("Resultado: %d\n", calcular_mdc(a,b));
