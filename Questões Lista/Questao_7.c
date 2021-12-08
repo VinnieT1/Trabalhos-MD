@@ -2,8 +2,6 @@
 
 int mdc_diofantino(int a, int b, int *s, int *t);
 
-int calcular_mdc(int a, int b);
-
 int main() {
     //scaneando a e b;
     int a, b;
@@ -32,13 +30,6 @@ int main() {
     printf("O inverso de %d mod %d eh: %d\n", a, b, s);
 
     return 0;
-}
-
-//explicacao na resolucao da questao 5
-int calcular_mdc(int a, int b)
-{
-    if (b == 0) return a;
-    return calcular_mdc(b, a % b);
 }
 
 //explicacao na resolucao da questao 6
