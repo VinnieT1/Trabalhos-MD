@@ -11,6 +11,6 @@ Vinícius Teixeira
 Bruno Almeida Pimentel
 
 ## Códigos:
-* [portfolio](https://katherinempeterson.com/)
+* [Questão 1](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_1.c)
 * [linkedin](https://www.linkedin.com/)
 * [twitter](https://twitter.com/)
