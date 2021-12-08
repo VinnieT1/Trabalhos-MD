@@ -43,7 +43,7 @@ void decompor(int num, vector<int> &vetor) {
 vector<int> pegar_fatores_primos(int num) {
   vector<int> retorno;
   decompor(num, retorno);
- return retorno;
+  return retorno;
 }
 
 vector<int> pegar_lista_expo(int num) {
