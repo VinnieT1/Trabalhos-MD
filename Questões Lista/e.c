@@ -7,7 +7,7 @@ int calcular_mdc (int a, int b)
     */
     if (b == 0) return a;
     //o contrário chamamos a recursão:
-    return calcular_mdc(b, a % b)
+    return calcular_mdc(b, a % b);
 }
 
 
