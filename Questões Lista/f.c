@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int mdc(int a, int b, int *s, int *t);
+int mdc_diofantino(int a, int b, int *s, int *t);
 
 int main() {
   //colentando a e b;
@@ -10,13 +10,13 @@ int main() {
   //definindo os coeficientes, que serão printados;
   int s, t;
 
-  int MDC = mdc(a, b, &s, &t);
+  int MDC = mdc_diofantino(a, b, &s, &t);
 
   printf("Os coeficientes 's' e 't' são, respectivamente, %d e %d\n", s, t);
   printf("O mdc é %d\n", MDC);
 }
 
-int mdc(int a, int b, int *s, int *t) {
+int mdc_diofantino(int a, int b, int *s, int *t) {
   if(b == 0) {
     *s = 1;
     *t = 0;
@@ -27,7 +27,7 @@ int mdc(int a, int b, int *s, int *t) {
   //(leia a explicação)
   int s1, t1;
   
-  int MDC = mdc(b, a % b, &s1, &t1);
+  int MDC = mdc_diofantino(b, a % b, &s1, &t1);
   *s = t1;
   *t = s1 - t1*(a/b);
   return MDC;
