@@ -17,7 +17,7 @@ int main() {
     int inverso = inverso_modulo(a, b);
 	
     //printando o inverso caso exista, ou printando que ele nao existe (caso nao exista):
-	if (inverso == 0) printf("Nao ha inverso de %d mod %d.\n", a, b);
+    if (inverso == 0) printf("Nao ha inverso de %d mod %d.\n", a, b);
     else printf("O inverso de %d mod %d eh: %d\n", a, b, inverso);
 
     return 0;
