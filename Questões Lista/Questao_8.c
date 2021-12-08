@@ -49,6 +49,7 @@ int achar_solucao_congruencia(int a, int b, int m){
     return solucao;
 }
 
+//explicacao na resolucao da questao 7
 int inverso_modulo(int a, int b){
     int s, t;
     int MDC = mdc_diofantino(a, b, &s, &t);
