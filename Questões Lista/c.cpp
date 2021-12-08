@@ -22,12 +22,13 @@ int main() {
 
   //printando:
   printf("Fatores primos de %d: ", num);
-  for(int i = 0; i < (int) fatores_primos.size(); i++) {
-    if(i == (int) fatores_primos.size() - 1) printf(" e ");
+  int vector_size = fatores_primos.size();
+  for(int i = 0; i < vector_size; i++) {
+    if(i == vector_size - 1 && vector_size > 1) printf(" e ");
     else if(i > 0) printf(", ");
     printf("%d", fatores_primos[i]);
   }
-  printf("\n");
+  printf(".\n");
 }
 
 //função recursiva para ir adicionando no vetor;
