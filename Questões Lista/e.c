@@ -2,16 +2,12 @@
 
 int calcular_mdc (int a, int b)
 {
+    /* se b for igual à zero,
+       chegamos no caso base
+    */
     if (b == 0) return a;
-    if (a % b == 0) return b;
-    else 
-    {
-        b = a % b;
-        a = b;
-        
-        calcular_mdc(a,b);
-    }
-    
+    //o contrário chamamos a recursão:
+    return calcular_mdc(b, a % b)
 }
 
 
