@@ -1,3 +1,4 @@
+![Logo](/assets/logo-ic.png)
 # Discrete-Maths
 Resoluções dos trabalhos de Matemática Discreta, dos Cursos de Engenharia e Ciência da Computação, IC/UFAL.
 ## Grupo:
