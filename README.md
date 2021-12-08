@@ -47,7 +47,7 @@ int main(){
 }
   ```  
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_1.c)
-#### Explicaçâo
+#### Explicação
 TO_DO;
 
 ### Questão 2
