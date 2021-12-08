@@ -81,8 +81,12 @@ int pegar_mdc(int a, int b) {
   fatores primos de 1 número, já que
   o algoritmo pega o mínimo dos expoentes;
   */
+  //vamos construir isso usando um set então:
+  set<int> conjunto_fatores;
+  for(int primo : pegar_fatores_primos(a))
+    conjunto_fatores.insert(primo);
   //vamos pegar então os fatores de a:
-  for(int primo : pegar_fatores_primos(a)) {
+  for(int primo : conjunto_fatores) {
     int min_expo = min(expo_a[primo], expo_b[primo]);
     MDC *= (int) pow(primo, min_expo);
   }
