@@ -99,7 +99,7 @@ int main(void) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_2.cpp)
 #### Explicação
-TO_DO;
+Esse algoritmo é igual ao crivo de erastótenes, que o professor inclusive comentou em aula. Perceba o truque que, ao visitar um primo i, ele só marca os multiplos de i maiores iguais que i * i, veja que isso basta pois qualquer número múltiplo de i menor que i * i é fatorável por um primo menor, que já foi visitado, sendo assim, os compostos menores que i * i podem ser expressos como j * k, j sendo um primo e k um inteiro qualquer, e já foi marcado como composto.  
 
 ### Questão 3
 3. Escrever um programa para decompor um determinado número inteiro em seus fatores primos.  
@@ -175,7 +175,8 @@ vector<int> pegar_fatores_primos(int num) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_3.cpp)
 #### Explicação
-TO_DO;
+Esse algoritmo pega recursivamente o menor divisor inteiro de um número que é maior que 1, isto é, sempre vai pegar um número primo, pois imagine o seguinte:  
+Imagine que ele pegou um número K, que não seja primo, K é fatorável por dois primos k1 e k2, logo K = k1 * k2, está aí a contradição, antes de pegar o número K o algoritmo acharia k1 < K, ou k2 < K (O menor deles). Logo, o vetor que retorno sai ordenado, com os fatores primos.
 
 ### Questão 4
 4. Escrever um programa para determinar o mdc e o mmc de dois inteiros com base em seus fatores primos.
