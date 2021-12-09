@@ -305,7 +305,13 @@ int pegar_mmc(int a, int b) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_4.cpp)
 #### Explicação
-TO_DO;
+Bom, o professor mencionou em aula esse algoritmo que acha o MDC e o MMC, basta encontrar os fatores primos dos números, e então:  
+Para o MDC:
+O MDC é igual à cada fator primo elevado ao seu mínimo expoente de A e de B, por isso criei a array dos expoentes, e fiz es processo, começando por 1. Perceba que precisei tratar o caso onde 1 número é 0, pois MMC(0, Z) é sempre Z.  
+Para o MMC:  
+Fiz semelhante, só que usando o máximo expoente de A e de B, eu poderia usar a propriedade que o MMC(a, b) = a * b / MDC(a, b), e poupar algumas linhas de código, mas preferi fazer como foi pedido na questão.  
+**Sobre o uso do Set**  
+Optei por usar o set<int>, uma estrutura do C++ que simula um conjunto na matemática, onde as repetições não importam (cada elemento é considerado único). Além disso, o tempo do método insert é baixo, O(log(size)), onde size é a quantidade de elementos do no set, isso deixa o programa mais rápido, tive que usá-lo pois não podia visitar o mesmo fator primo 2x, uma alternativa à isso seria iterar entre todos os inteiros de 2 até max(a, b), porém isso seria mais custoso computacionalmente.  
 
 ### Questão 5
 5. Escrever um programa para determinar o mdc de dois números com base no Algoritmo de Euclides.
