@@ -382,28 +382,24 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
   *s = t1;
   *t = s1 - t1*(a/b);
   return MDC;
-  //Algoritmo:
-  /*
-    Vamos achar recursivamente os coefiecientes s e t, tal que a*s + b*t = mdc(a, b);
-    pela lógica do algoritmo de euclides, quando b é igual à zero, na última call da recursão
-    temos que: a*s + 0*t = a, logo , s = 1;
-    Daí onde vem o caso base, vamos então, resolver essa transição:
-    Veja:
-    a*s + b*t = b*s1 + (a % b)*t1 = mdc(a, b);
-    já que a % b = a - (a/b)*b (denote (a/b) como floor(a/b)), então:
-    a*s + b*t = b*s1 + [a - (a/b)*b]*t1;
-    continuando:
-    a*s + b*t = b*s1 + a*t1 - b*(a/b)*t1;
-    colocando b em evidencia:
-    a*s + b*t = a*t1 + b*{s1 - (a/b)*t1}
-    logo:
-    s = t1, e t = s1 - (a/b)*t1;
-  */
 }
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Questao_6.c)
 #### Explicação
-TO_DO;
+Vamos achar recursivamente os coefiecientes s e t, tal que a*s + b*t = mdc(a, b);  
+Pela lógica do algoritmo de euclides, quando b é igual à zero, na última call da recursão temos que:  
+a * s + 0 * t = a, logo , s = 1;  
+Daí onde vem o caso base, vamos então, resolver essa transição:  
+Veja:  
+a * s + b * t = b * s1 + (a % b) * t1 = mdc(a, b);  
+Já que a % b = a - (a/b) * b (denote (a/b) como floor(a/b)), então:  
+a * s + b * t = b * s1 + [a - (a/b) * b] * t1;  
+Continuando:  
+a * s + b * t = b * s1 + a * t1 - b * (a/b) * t1;  
+Colocando b em evidencia:  
+a * s + b * t = a * t1 + b * {s1 - (a/b) * t1}  
+Logo:  
+s = t1, e t = s1 - (a/b) * t1;  
 
 ### Questão 7
 7. Escrever um programa para encontrar o inverso de a mod b.
