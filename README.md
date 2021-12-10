@@ -386,7 +386,7 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Questao_6.c)
 #### Explicação
-Vamos achar recursivamente os coefiecientes s e t, tal que a*s + b*t = mdc(a, b);  
+Vamos achar recursivamente os coefiecientes s e t, tal que a * s + b * t = mdc(a, b);  
 Pela lógica do algoritmo de euclides, quando b é igual à zero, na última call da recursão temos que:  
 a * s + 0 * t = a, logo , s = 1;  
 Daí onde vem o caso base, vamos então, resolver essa transição:  
