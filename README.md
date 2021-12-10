@@ -402,7 +402,7 @@ Logo:
 s = t1, e t = s1 - (a/b) * t1;  
 
 ### Questão 7
-7. Escrever um programa para encontrar o inverso de a mod b.
+7. Escrever um programa para encontrar o inverso de a ≡ mod b.
 #### Solução
 ```c
 #include <stdio.h>
