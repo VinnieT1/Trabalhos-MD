@@ -470,7 +470,7 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Questao_7.c)
 #### Explicação
-O inverso de a (mod b) é um número inteiro k, tal que k*a é congruente a 1 (mod b). É possível achar k a partir do algoritmo de Euclides: mdc(a, b) = a*k + b*t; (t é um número inteiro que satisfaz tal equação). Na realidade, existem infinitos inversos de a mod b, os quais possuem fórmula geral K = k + c*b, onde K é o termo geral para o inverso, e c é um inteiro qualquer. No entanto, decidimos padronizar o valor do inverso no intervalo (0, b), isto é, o inverso encontrado sempre estará entre 0 e b.
+O inverso de a (mod b) é um número inteiro k, tal que ka é congruente a 1 (mod b). É possível achar k a partir do algoritmo de Euclides: mdc(a, b) = ak + bt; (t é um número inteiro que satisfaz tal equação). Na realidade, existem infinitos inversos de a mod b, os quais possuem fórmula geral K = k + cb, onde K é o termo geral para o inverso, e c é um inteiro qualquer. No entanto, decidimos padronizar o valor do inverso no intervalo (0, b), isto é, o inverso encontrado sempre estará entre 0 e b.
   
 ### Questão 8
 8. Escrever um programa para encontrar a solução de uma congruência do tipo ax 
@@ -560,7 +560,7 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Questao_8.c)
 #### Explicação
-Para encontrar um valor de x que satisfaça a congruência, devemos achar x congruente a b*k (mod m), onde k é um inteiro tal que k*a é congruente a 1 (mod m). Usando o algoritmo da questão anterior, encontramos k (que é o inverso de a). Então, x = b*k satisfará a equação (caso as demais exigências explicitadas no código também sejam cumpridas). No entanto, existem casos onde existem múltiplos valores para x. Então, decidimos escolher x pertencente ao intervalo (0, m), isto é, x estará entre 0 e m.
+Para encontrar um valor de x que satisfaça a congruência, devemos achar x congruente a bk (mod m), onde k é um inteiro tal que ka é congruente a 1 (mod m). Usando o algoritmo da questão anterior, encontramos k (que é o inverso de a). Então, x = bk satisfará a equação (caso as demais exigências explicitadas no código também sejam cumpridas). No entanto, existem casos onde existem múltiplos valores para x. Então, decidimos escolher x pertencente ao intervalo (0, m), isto é, x estará entre 0 e m.
 
 ### Questão 9
 ### Questão 10
