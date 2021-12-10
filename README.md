@@ -400,7 +400,7 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
     s = t1, e t = s1 - (a/b)*t1;
   */
 }
- 
+```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Questao_6.c)
 #### Explicação
 TO_DO;
