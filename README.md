@@ -48,7 +48,9 @@ int main(){
   ```  
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_1.c)
 #### Explicação
-TO_DO;
+A função eh_primo() tem como input um inteiro N. A função checará se existe algum divisor de N no intervalo [2, sqrt(N)]. Caso haja, então N não é primo.
+Caso contrário, N é primo.
+A função retorna o valor booleano true caso N seja primo, e retorna o valor booleano false caso N não seja primo.
 
 ### Questão 2
 2. Escrever um programa para listar números primos sequencialmente. Você deve otimizar o programa para que ele liste o maior número possível de primos em 60
