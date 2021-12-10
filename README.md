@@ -560,7 +560,7 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Questao_8.c)
 #### Explicação
-Para encontrar um valor de x que satisfaça a congruência, devemos achar x congruente a bk (mod m), onde k é um inteiro tal que ka é congruente a 1 (mod m). Usando o algoritmo da questão anterior, encontramos k (que é o inverso de a). Então, x = bk satisfará a equação (caso as demais exigências explicitadas no código também sejam cumpridas). No entanto, existem casos onde existem múltiplos valores para x. Então, decidimos escolher x pertencente ao intervalo (0, m), isto é, x estará entre 0 e m.
+Para encontrar um valor de x que satisfaça a congruência, devemos achar x congruente a bk (mod m), onde k é um inteiro tal que ka é congruente a 1 (mod m). Usando o algoritmo da questão anterior, encontramos k (que é o inverso de a). Então, x = bk satisfará a equação (caso as demais exigências explicitadas no código também sejam cumpridas). No entanto, existem casos onde existem múltiplos valores para x. Então, decidimos escolher o menor x pertencente ao intervalo (0, m), isto é, x estará entre 0 e m e será o menor valor neste intervalo que satisfaça a congruência original.
 
 ### Questão 9
 ### Questão 10
