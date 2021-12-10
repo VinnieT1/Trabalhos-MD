@@ -343,12 +343,14 @@ int main ()
 #### Explicação
 TO_DO;
 
+  
 ### Questão 6
 6.Escrever um programa para encontrar os coeficientes s e t da combinação linear
 mdc(a; b) = s * a + t * b.
 ### Solução 
-  #include <stdio.h>
-
+```c 
+ 
+#include <stdio.h>
 int mdc_diofantino(int a, int b, int *s, int *t);
 
 int main() {
