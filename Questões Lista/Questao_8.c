@@ -8,7 +8,7 @@ int achar_solucao_congruencia(int a, int b, int m);
 
 int main() {
     //instrucao para o scanf:
-    printf("Digite a (inteiro), b (inteiro), m (m > 1), nesta ordem. \n");
+    printf("Digite a (inteiro), b (inteiro), m (m > 1), nesta ordem.\n");
 
     //scaneando a, b e m:
     int a, b, m;
