@@ -31,12 +31,10 @@ int main() {
 int achar_solucao_congruencia(int a, int b, int m){
     //encontrando a e b positivos e equivalentes, caso a e/ou b sejam negativos:
     int ap = a;
-    while (ap < 0) ap += m;
-    ap = ap % m;
+    ap = (m + ap % m) % m;
 
     int bp = b;
-    while (bp < 0) bp += m;
-    bp = bp % m;
+    bp = (m + bp % m) % m;
 
     //caso a == 0 e b == 0, qualquer x eh solucao.
     //retornando, por conveniencia, a solucao x = 0:
