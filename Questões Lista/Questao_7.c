@@ -5,6 +5,9 @@ int mdc_diofantino(int a, int b, int *s, int *t);
 int inverso_modulo(int a, int b);
 
 int main() {
+	//instrucoes para o scanf:
+	printf("Digite a (inteiro), b (b > 1) nesta ordem.\n");
+	
     //scaneando a e b;
     int a, b;
     scanf("%d %d", &a, &b);
@@ -25,6 +28,11 @@ int main() {
 
 //encontra o inverso de a mod b:
 int inverso_modulo(int a, int b){
+	//se a for negativo, pegamos um a positivo, que seja equivalente ao a original:
+	//se a for maior que b, pegamos a % b, que eh equivalente a a:
+	while(a < 0) a+= b;
+    a = a % b;
+	
     //declarando os coeficientes s e t:
     int s, t;
 
