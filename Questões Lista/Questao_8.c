@@ -14,34 +14,41 @@ int main() {
     //ax congruente a b (mod m)
     //temos que x congruente a bs (mod m), onde s eh o inverso de a mod m
 
-    //checando se ha solucao:
-    //declarando os coeficientes s e t e o mdc(a, m):
-    int s, t;
-    int mdc_am = mdc_diofantino(a, m, &s, &t);
+    //x sera a solucao:
+    int x = achar_solucao_congruencia(a, b, m);
 
-    //se mdc(a, m) nao divide b, entao nao ha solucao.
-    if (b % mdc_am != 0) printf("Nao ha solucao para %dx congruente a %d (mod %d)\n", a, b, m);
-    //caso haja solucao:
-    else{
-        //x eh a solucao. Se x for -1, nao ha solucao (lembrando que queremos x entre 0 e m/mdc(a, m)).
-        int x = achar_solucao_congruencia(a/mdc_am, b/mdc_am, m/mdc_am); 
-
-        //printando a solucao (caso exista), ou printa que nao ha solucao (caso nao exista):
-        if (x == -1) printf("Nao ha x que satisfaca %dx congruente a%d (mod %d).\n", a*mdc_am, b*mdc_am, m*mdc_am);
-        else printf("x = %d satisfaz %dx congruente a %d (mod %d).\n", x, a*mdc_am, b*mdc_am, m*mdc_am);
-    }
+    //printa a solucao (caso haja) ou printa que nao tem solucao (caso nao tenha):
+    if (x == -1) printf("Nao ha solucao para %dx congruente a %d (mod %d)\n", a, b, m);
+    else printf("x = %d satisfaz %dx congruente a %d (mod %d).\n", x, a, b, m);
 
     return 0;
 }
 
 //retorna -1 se nao ha solucao. Caso contrario, retorna a solucao entre 0 e m:
 int achar_solucao_congruencia(int a, int b, int m){
+    //encontrando a e b positivos e equivalentes, caso a e/ou b sejam negativos:
+    int ap = a;
+    while (ap < 0) ap += m;
+    if (ap > m) ap = ap % m;
+
+    int bp = b;
+    while (bp < 0) bp += m;
+    if (bp > m) bp = bp % m;
+
+    //checando se ha solucao:
+    //declarando os coeficientes s e t e o mdc(a, m):
+    int s, t;
+    int mdc_am = mdc_diofantino(ap, m, &s, &t);
+
+    //se mdc(a, m) nao divide b, entao nao ha solucao.
+    if (b % mdc_am != 0) return -1;
+
     //encontrando o inverso de a (caso exista):
-    int inverso_a = inverso_modulo(a, m);
+    int inverso_a = inverso_modulo(a/mdc_am, m/mdc_am);
     if (inverso_a == 0) return -1;
 
     //encontrando a solucao entre 0 e m:
-    int solucao = inverso_a*b;
+    int solucao = inverso_a*(b/mdc_am);
 
     while (solucao < 0) solucao += m;
     if (solucao > m) solucao = solucao % m;
