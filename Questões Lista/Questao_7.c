@@ -28,7 +28,7 @@ int main() {
 
 //encontra o inverso de a mod b:
 int inverso_modulo(int a, int b){
-    //se a for negativo, pegamos um a positivo, que seja equivalente ao a original:
+	//se a for negativo, pegamos um a positivo, que seja equivalente ao a original:
     //se a for maior que b, pegamos a % b, que eh equivalente a a:
 	a = (b + a % b) % b;
 	
@@ -42,7 +42,7 @@ int inverso_modulo(int a, int b){
     if (MDC != 1) return 0;
 
     //achando o inverso entre 0 e b:
-    s = (m + s % m) % m;
+    s = (b + s % b) % b;
 
     //retornando o inverso:
     return s;
