@@ -68,8 +68,7 @@ int inverso_modulo(int a, int b){
 
     if (MDC != 1) return 0;
 
-    while (s < 0) s += b;
-    if (s > b) s = s % b;
+    s = (m + s % m) % m;
 
     return s;
 }
