@@ -29,7 +29,7 @@ int main() {
 //encontra o inverso de a mod b:
 int inverso_modulo(int a, int b){
 	//se a for negativo, pegamos um a positivo, que seja equivalente ao a original:
-    //se a for maior que b, pegamos a % b, que eh equivalente a a:
+	//se a for maior que b, pegamos a % b, que eh equivalente a a:
 	a = (b + a % b) % b;
 	
     //declarando os coeficientes s e t:
