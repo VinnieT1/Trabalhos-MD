@@ -29,11 +29,15 @@ int achar_solucao_congruencia(int a, int b, int m){
     //encontrando a e b positivos e equivalentes, caso a e/ou b sejam negativos:
     int ap = a;
     while (ap < 0) ap += m;
-    if (ap > m) ap = ap % m;
+    ap = ap % m;
 
     int bp = b;
     while (bp < 0) bp += m;
-    if (bp > m) bp = bp % m;
+    bp = bp % m;
+
+    //caso a == 0 e b == 0, qualquer x eh solucao.
+    //retornando, por conveniencia, a solucao x = 0:
+    if (ap == 0 && bp == 0) return 0;
 
     //checando se ha solucao:
     //declarando os coeficientes s e t e o mdc(a, m):
@@ -41,14 +45,14 @@ int achar_solucao_congruencia(int a, int b, int m){
     int mdc_am = mdc_diofantino(ap, m, &s, &t);
 
     //se mdc(a, m) nao divide b, entao nao ha solucao.
-    if (b % mdc_am != 0) return -1;
+    if (bp % mdc_am != 0) return -1;
 
     //encontrando o inverso de a (caso exista):
-    int inverso_a = inverso_modulo(a/mdc_am, m/mdc_am);
+    int inverso_a = inverso_modulo(ap/mdc_am, m/mdc_am);
     if (inverso_a == 0) return -1;
 
     //encontrando a solucao entre 0 e m:
-    int solucao = inverso_a*(b/mdc_am);
+    int solucao = inverso_a*(bp/mdc_am);
 
     while (solucao < 0) solucao += m;
     if (solucao > m) solucao = solucao % m;
