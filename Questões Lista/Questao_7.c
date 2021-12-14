@@ -5,8 +5,8 @@ int mdc_diofantino(int a, int b, int *s, int *t);
 int inverso_modulo(int a, int b);
 
 int main() {
-	//instrucoes para o scanf:
-	printf("Digite a (inteiro), b (b > 1) nesta ordem.\n");
+    //instrucoes para o scanf:
+    printf("Digite a (inteiro), b (b > 1) nesta ordem.\n");
 	
     //scaneando a e b;
     int a, b;
@@ -50,7 +50,7 @@ int inverso_modulo(int a, int b){
     return s;
 }
 
-//explicacao na resolucao da questao 6.
+//explicacao na resolucao da questao 6
 int mdc_diofantino(int a, int b, int *s, int *t) {
     if(b == 0) {
         *s = 1;
