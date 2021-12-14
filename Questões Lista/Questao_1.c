@@ -17,6 +17,9 @@ bool eh_primo(int num){
 }
 
 int main(){
+    //instrucao do printf:
+    printf("Digite um numero para descobrir se eh primo ou nao.\n");
+    
     //numero eh a variavel que julgaremos ser primo ou nao.
     int numero;
     scanf("%d", &numero);
