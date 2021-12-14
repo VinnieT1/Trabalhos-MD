@@ -343,7 +343,7 @@ int main ()
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Questões%20Lista/Questao_5.c)
 #### Explicação
-O algoritmo de Euclides é um método simples e eficiente de encontrar o máximo divisor comum entre dois números inteiros difentes de zero. 
+O algoritmo de Euclides é um método simples e eficiente de encontrar o máximo divisor comum entre dois números inteiros não negativos. 
 Basicamente, temos 2 números inteiros (a,b).
 O valor "a" será igual ao "b" do loop passado, e o valor "b" será igual ao resto da divisão entre "a" e "b" do loop passado. O programa entra em loop até o resto da divisão for igual a 0. 
 Quando "b" for igual a 0, o programa retornará o valor de "a".
