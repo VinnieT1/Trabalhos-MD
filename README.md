@@ -476,8 +476,7 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
 O inverso de a (mod b) é um número inteiro k, tal que ka é congruente a 1 (mod b). É possível achar k a partir do algoritmo de Euclides: mdc(a, b) = ak + bt; (t é um número inteiro que satisfaz tal equação). Na realidade, existem infinitos inversos de a mod b, os quais possuem fórmula geral K = k + cb, onde K é o termo geral para o inverso, e c é um inteiro qualquer. No entanto, decidimos padronizar o valor do inverso no intervalo (0, b), isto é, o inverso encontrado sempre estará entre 0 e b.
   
 ### Questão 8
-8. Escrever um programa para encontrar a solução de uma congruência do tipo ax 
-b mod m.
+8. Escrever um programa para encontrar a solução de uma congruência do tipo ax ≡ b mod m.
 #### Solução
 ```c	
 #include <stdio.h>
