@@ -50,7 +50,7 @@ int inverso_modulo(int a, int b){
     return s;
 }
 
-//explicacao na resolucao da questao 6
+//explicacao na resolucao da questao 6.
 int mdc_diofantino(int a, int b, int *s, int *t) {
     if(b == 0) {
         *s = 1;
