@@ -55,8 +55,7 @@ int achar_solucao_congruencia(int a, int b, int m){
     //encontrando a solucao entre 0 e m:
     int solucao = inverso_a*(bp/mdc_am);
 
-    while (solucao < 0) solucao += m;
-    if (solucao > m) solucao = solucao % m;
+    solucao = (m + solucao % m) % m;
 
     return solucao;
 }
