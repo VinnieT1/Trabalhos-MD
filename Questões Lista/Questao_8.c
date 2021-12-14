@@ -17,7 +17,7 @@ int main() {
     //ax congruente a b (mod m)
     //temos que x congruente a bs (mod m), onde s eh o inverso de a mod m
 
-    //x sera a solucao:
+    //x sera a solucao (se x == -1, nao ha solucao):
     int x = achar_solucao_congruencia(a, b, m);
 
     //printa a solucao (caso haja) ou printa que nao tem solucao (caso nao tenha):
