@@ -35,6 +35,9 @@ bool eh_primo(int num){
 }
 
 int main(){
+    //instrucao do printf:
+    printf("Digite um numero para descobrir se eh primo ou nao.\n");
+    
     //numero eh a variavel que julgaremos ser primo ou nao.
     int numero;
     scanf("%d", &numero);
@@ -119,6 +122,7 @@ void decompor(int num, vector<int> &vetor);
 int main() {
   //pegando o input;
   int num;
+  printf("Digite o número que deseja fatorar:\n");
   scanf("%d", &num);
   
   if(num < 2) {
@@ -201,6 +205,7 @@ int pegar_mmc(int a, int b);
 int main() {
   //lendo os dois inteiros;
   int A, B;
+  printf("Digite dois inteiros para calcular o MMC e o MDC entre eles:\n");
   scanf("%d %d", &A, &B);
 
   if(A < 0 || B < 0) {
@@ -352,10 +357,10 @@ Esse programa definiu 2 inteiros, scanneou e printou o retorno da função calcu
 ### Questão 6
 6. Escrever um programa para encontrar os coeficientes s e t da combinação linear
 mdc(a, b) = s * a + t * b.
-#### Solução 
-```c 
- 
+#### Solução
+```c
 #include <stdio.h>
+
 int mdc_diofantino(int a, int b, int *s, int *t);
 
 int main() {
@@ -387,6 +392,23 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
   *s = t1;
   *t = s1 - t1*(a/b);
   return MDC;
+  //Algoritmo:
+  /*
+    Vamos achar recursivamente os coefiecientes s e t, tal que a*s + b*t = mdc(a, b);
+    pela lógica do algoritmo de euclides, quando b é igual à zero, na última call da recursão
+    temos que: a*s + 0*t = a, logo , s = 1;
+    Daí onde vem o caso base, vamos então, resolver essa transição:
+    Veja:
+    a*s + b*t = b*s1 + (a % b)*t1 = mdc(a, b);
+    já que a % b = a - (a/b)*b (denote (a/b) como floor(a/b)), então:
+    a*s + b*t = b*s1 + [a - (a/b)*b]*t1;
+    continuando:
+    a*s + b*t = b*s1 + a*t1 - b*(a/b)*t1;
+    colocando b em evidencia:
+    a*s + b*t = a*t1 + b*{s1 - (a/b)*t1}
+    logo:
+    s = t1, e t = s1 - (a/b)*t1;
+  */
 }
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Questao_6.c)
@@ -417,6 +439,9 @@ int mdc_diofantino(int a, int b, int *s, int *t);
 int inverso_modulo(int a, int b);
 
 int main() {
+    //instrucoes para o scanf:
+    printf("Digite a (inteiro), b (b > 1) nesta ordem.\n");
+	
     //scaneando a e b;
     int a, b;
     scanf("%d %d", &a, &b);
@@ -437,6 +462,10 @@ int main() {
 
 //encontra o inverso de a mod b:
 int inverso_modulo(int a, int b){
+    //se a for negativo, pegamos um a positivo, que seja equivalente ao a original:
+    //se a for maior que b, pegamos a % b, que eh equivalente a a:
+    a = (b + a % b) % b;
+	
     //declarando os coeficientes s e t:
     int s, t;
 
@@ -447,8 +476,7 @@ int inverso_modulo(int a, int b){
     if (MDC != 1) return 0;
 
     //achando o inverso entre 0 e b:
-    while (s < 0) s += b;
-    if (s > b) s = s % b;
+    s = (b + s % b) % b;
 
     //retornando o inverso:
     return s;
@@ -488,6 +516,9 @@ int inverso_modulo(int a, int b);
 int achar_solucao_congruencia(int a, int b, int m);
 
 int main() {
+    //instrucao para o scanf:
+    printf("Digite a (inteiro), b (inteiro), m (m > 1), nesta ordem.\n");
+
     //scaneando a, b e m:
     int a, b, m;
     scanf("%d %d %d", &a, &b, &m);
@@ -495,37 +526,45 @@ int main() {
     //ax congruente a b (mod m)
     //temos que x congruente a bs (mod m), onde s eh o inverso de a mod m
 
-    //checando se ha solucao:
-    //declarando os coeficientes s e t e o mdc(a, m):
-    int s, t;
-    int mdc_am = mdc_diofantino(a, m, &s, &t);
+    //x sera a solucao (se x == -1, nao ha solucao):
+    int x = achar_solucao_congruencia(a, b, m);
 
-    //se mdc(a, m) nao divide b, entao nao ha solucao.
-    if (b % mdc_am != 0) printf("Nao ha solucao para %dx congruente a %d (mod %d)\n", a, b, m);
-    //caso haja solucao:
-    else{
-        //x eh a solucao. Se x for -1, nao ha solucao (lembrando que queremos x entre 0 e m/mdc(a, m)).
-        int x = achar_solucao_congruencia(a/mdc_am, b/mdc_am, m/mdc_am); 
-
-        //printando a solucao (caso exista), ou printa que nao ha solucao (caso nao exista):
-        if (x == -1) printf("Nao ha x que satisfaca %dx congruente a%d (mod %d).\n", a*mdc_am, b*mdc_am, m*mdc_am);
-        else printf("x = %d satisfaz %dx congruente a %d (mod %d).\n", x, a*mdc_am, b*mdc_am, m*mdc_am);
-    }
+    //printa a solucao (caso haja) ou printa que nao tem solucao (caso nao tenha):
+    if (x == -1) printf("Nao ha solucao para %dx congruente a %d (mod %d)\n", a, b, m);
+    else printf("x = %d satisfaz %dx congruente a %d (mod %d).\n", x, a, b, m);
 
     return 0;
 }
 
 //retorna -1 se nao ha solucao. Caso contrario, retorna a solucao entre 0 e m:
 int achar_solucao_congruencia(int a, int b, int m){
+    //encontrando a e b positivos e equivalentes, caso a e/ou b sejam negativos:
+    int ap = a;
+    ap = (m + ap % m) % m;
+
+    int bp = b;
+    bp = (m + bp % m) % m;
+
+    //caso a == 0 e b == 0, qualquer x eh solucao.
+    //retornando, por conveniencia, a solucao x = 0:
+    if (ap == 0 && bp == 0) return 0;
+
+    //checando se ha solucao:
+    //declarando os coeficientes s e t e o mdc(a, m):
+    int s, t;
+    int mdc_am = mdc_diofantino(ap, m, &s, &t);
+
+    //se mdc(a, m) nao divide b, entao nao ha solucao.
+    if (bp % mdc_am != 0) return -1;
+
     //encontrando o inverso de a (caso exista):
-    int inverso_a = inverso_modulo(a, m);
+    int inverso_a = inverso_modulo(ap/mdc_am, m/mdc_am);
     if (inverso_a == 0) return -1;
 
     //encontrando a solucao entre 0 e m:
-    int solucao = inverso_a*b;
+    int solucao = inverso_a*(bp/mdc_am);
 
-    while (solucao < 0) solucao += m;
-    if (solucao > m) solucao = solucao % m;
+    solucao = (m + solucao % m) % m;
 
     return solucao;
 }
@@ -537,8 +576,7 @@ int inverso_modulo(int a, int b){
 
     if (MDC != 1) return 0;
 
-    while (s < 0) s += b;
-    if (s > b) s = s % b;
+    s = (b + s % b) % b;
 
     return s;
 }
