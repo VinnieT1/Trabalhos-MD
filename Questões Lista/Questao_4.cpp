@@ -15,6 +15,7 @@ int pegar_mmc(int a, int b);
 int main() {
   //lendo os dois inteiros;
   int A, B;
+  printf("Digite dois inteiros para calcular o MMC e o MDC entre eles:\n");
   scanf("%d %d", &A, &B);
 
   if(A < 0 || B < 0) {
