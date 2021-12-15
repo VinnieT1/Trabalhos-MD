@@ -10,6 +10,7 @@ void decompor(int num, vector<int> &vetor);
 int main() {
   //pegando o input;
   int num;
+  printf("Digite o número que deseja fatorar:\n");
   scanf("%d", &num);
   
   if(num < 2) {
