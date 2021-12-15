@@ -1,58 +1,78 @@
 #include <stdio.h>
-
-int mdc_diofantino(int a, int b, int *s, int *t);
-
-int inverso_modulo(int a, int b);
+#include <stdlib.h>
 
 int achar_solucao_congruencia(int a, int b, int m);
+int inverso_modulo(int a, int b);
+int mdc_diofantino(int a, int b, int *s, int *t);
+int teorema_resto_chines(int n);
+
+/*
+Variável ERRO:
+Se 0:
+  Tudo ok.
+Se 1:
+  O problema não pode ser resolvido pelo
+  teorema do resto chinês ou não tem solução
+  ....
+*/
+int ERRO = 0;
 
 int main() {
-    //instrucao para o scanf:
-    printf("Digite a (inteiro), b (inteiro), m (m > 1), nesta ordem.\n");
-
-    //scaneando a, b e m:
-    int a, b, m;
-    scanf("%d %d %d", &a, &b, &m);
-
-    //ax congruente a b (mod m)
-    //temos que x congruente a bs (mod m), onde s eh o inverso de a mod m
-
-    //x sera a solucao (se x == -1, nao ha solucao):
-    int x = achar_solucao_congruencia(a, b, m);
-
-    //printa a solucao (caso haja) ou printa que nao tem solucao (caso nao tenha):
-    if (x == -1) printf("Nao ha solucao para %dx congruente a %d (mod %d)\n", a, b, m);
-    else printf("x = %d satisfaz %dx congruente a %d (mod %d).\n", x, a, b, m);
-
-    return 0;
+  printf("Digite o número de congruências: ");
+  int n; scanf("%d", &n);
+  int solucao = teorema_resto_chines(n);
+  if(ERRO) {
+    printf("O problema não pode ser resolvido pelo teorema do resto chinês ou não tem solução\n");
+  }
+  else {
+    printf("x é igual à %d", solucao);
+  }
 }
 
-//retorna -1 se nao ha solucao. Caso contrario, retorna a solucao entre 0 e m:
+void interpretar() {
+  //TODO
+}
+
+int teorema_resto_chines(int n) {
+  printf("Digite as %d congruências: \n", n);
+  int M_grande = 1, r[n], m[n];
+  for(int i = 0; i < n; i++) {
+    interpretar(&r[i], &m[i]);
+    scanf("%d %d", &r[i], &m[i]);
+    M_grande *= m[i];
+  }
+
+  int solucao = 0;
+  for(int i = 0; i < n; i++) {
+    int M = M_grande / m[i];
+    //M = M_grande / m[i]
+    //incremente M * s[i] * r[i] à solução
+    int s = achar_solucao_congruencia(M, 1, m[i]);
+    int coefS, coefT; 
+    if(mdc_diofantino(M, m[i], &coefS, &coefT) != 1)
+      ERRO = 1;
+    solucao += s * M * r[i];
+  }
+  return solucao;
+}
+
 int achar_solucao_congruencia(int a, int b, int m){
-    //encontrando a e b positivos e equivalentes, caso a e/ou b sejam negativos:
     int ap = a;
     ap = (m + ap % m) % m;
 
     int bp = b;
     bp = (m + bp % m) % m;
 
-    //caso a == 0 e b == 0, qualquer x eh solucao.
-    //retornando, por conveniencia, a solucao x = 0:
     if (ap == 0 && bp == 0) return 0;
 
-    //checando se ha solucao:
-    //declarando os coeficientes s e t e o mdc(a, m):
     int s, t;
     int mdc_am = mdc_diofantino(ap, m, &s, &t);
 
-    //se mdc(a, m) nao divide b, entao nao ha solucao.
     if (bp % mdc_am != 0) return -1;
 
-    //encontrando o inverso de a (caso exista):
     int inverso_a = inverso_modulo(ap/mdc_am, m/mdc_am);
     if (inverso_a == 0) return -1;
 
-    //encontrando a solucao entre 0 e m:
     int solucao = inverso_a*(bp/mdc_am);
 
     solucao = (m + solucao % m) % m;
@@ -60,7 +80,6 @@ int achar_solucao_congruencia(int a, int b, int m){
     return solucao;
 }
 
-//explicacao na resolucao da questao 7
 int inverso_modulo(int a, int b){
     int s, t;
     int MDC = mdc_diofantino(a, b, &s, &t);
@@ -72,7 +91,6 @@ int inverso_modulo(int a, int b){
     return s;
 }
 
-//explicacao na resolucao da questao 6
 int mdc_diofantino(int a, int b, int *s, int *t) {
     if(b == 0) {
         *s = 1;
