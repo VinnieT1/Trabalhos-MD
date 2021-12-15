@@ -29,74 +29,80 @@ int main() {
   }
 }
 
+void interpretar() {
+  //TODO
+}
+
 int teorema_resto_chines(int n) {
   printf("Digite as %d congruências: \n", n);
   int M_grande = 1, r[n], m[n];
   for(int i = 0; i < n; i++) {
+    interpretar(&r[i], &m[i]);
     scanf("%d %d", &r[i], &m[i]);
     M_grande *= m[i];
   }
 
-  int M[n];
   int solucao = 0;
   for(int i = 0; i < n; i++) {
-    M[i] = M_grande / m[i];
-    /*
-    incremente M[i] * s[i] * r[i] à solução
-    */
-    int s = achar_solucao_congruencia(M[i], 1, m[i]);
+    int M = M_grande / m[i];
+    //M = M_grande / m[i]
+    //incremente M * s[i] * r[i] à solução
+    int s = achar_solucao_congruencia(M, 1, m[i]);
     int coefS, coefT; 
-    if(mdc_diofantino(M[i], m[i], &coefS, &coefT) != 1)
+    if(mdc_diofantino(M, m[i], &coefS, &coefT) != 1)
       ERRO = 1;
-    solucao += s * M[i] * r[i];
+    solucao += s * M * r[i];
   }
   return solucao;
 }
 
-int achar_solucao_congruencia(int a, int b, int m) {
-  //encontrando o inverso de a (caso exista):
-  int s, t;
-  int mdc_am = mdc_diofantino(a, m, &s, &t);
-  if(b % mdc_am != 0) ERRO = 1;
-  a /= mdc_am;
-  b /= mdc_am;
-  m /= mdc_am;
+int achar_solucao_congruencia(int a, int b, int m){
+    int ap = a;
+    ap = (m + ap % m) % m;
 
-  int inverso_a = inverso_modulo(a, m);
-  if (inverso_a == 0) ERRO = 1;
+    int bp = b;
+    bp = (m + bp % m) % m;
 
-  //encontrando a solucao entre 0 e m:
-  int solucao = inverso_a*b;
+    if (ap == 0 && bp == 0) return 0;
 
-  while (solucao < 0) solucao += m;
-  if (solucao > m) solucao = solucao % m;
+    int s, t;
+    int mdc_am = mdc_diofantino(ap, m, &s, &t);
 
-  return solucao;
+    if (bp % mdc_am != 0) return -1;
+
+    int inverso_a = inverso_modulo(ap/mdc_am, m/mdc_am);
+    if (inverso_a == 0) return -1;
+
+    int solucao = inverso_a*(bp/mdc_am);
+
+    solucao = (m + solucao % m) % m;
+
+    return solucao;
 }
 
 int inverso_modulo(int a, int b){
-  int s, t;
-  int MDC = mdc_diofantino(a, b, &s, &t);
+    int s, t;
+    int MDC = mdc_diofantino(a, b, &s, &t);
 
-  if (MDC != 1) return 0;
+    if (MDC != 1) return 0;
 
-  while (s < 0) s += b;
-  if (s > b) s = s % b;
+    s = (b + s % b) % b;
 
-  return s;
+    return s;
 }
 
 int mdc_diofantino(int a, int b, int *s, int *t) {
-  if(b == 0) {
-    *s = 1;
-    *t = 0;
-    return a;
-  }
+    if(b == 0) {
+        *s = 1;
+        *t = 0;
+        return a;
+    }
 
-  int s1, t1;
-  int MDC = mdc_diofantino(b, a % b, &s1, &t1);
+    int s1, t1;
+  
+    int MDC = mdc_diofantino(b, a % b, &s1, &t1);
 
-  *s = t1;
-  *t = s1 - t1*(a/b);
-  return MDC;
+    *s = t1;
+    *t = s1 - t1*(a/b);
+    return MDC;
 }
