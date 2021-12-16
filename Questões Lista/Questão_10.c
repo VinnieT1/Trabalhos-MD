@@ -94,7 +94,7 @@ int teorema_resto_chines(int n) {
       ERRO = 1;
     solucao += s * M * r[i];
   }
-  return solucao;
+  return solucao % M_grande;
 }
 
 int achar_solucao_congruencia(int a, int b, int m){
