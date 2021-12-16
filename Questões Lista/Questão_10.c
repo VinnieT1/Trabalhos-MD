@@ -29,8 +29,48 @@ int main() {
   }
 }
 
-void interpretar() {
-  //TODO
+void interpretar(int *r, int *m) {
+  int a_inicial, r_inicial, m_inicial, inverso_a, mdc;
+  int s, t;
+  scanf("%d %d %d", &a_inicial, &r_inicial, &m_inicial);
+
+  if (m_inicial <= 0){
+    ERRO = 1;
+    *r = -1;
+    *m = -1;
+    return;
+  }
+
+  r_inicial = (m_inicial - r_inicial % m_inicial) % m_inicial;
+  a_inicial = (m_inicial - a_inicial % m_inicial) % m_inicial;
+
+  mdc = mdc_diofantino(a_inicial, r_inicial, &s, &t);
+
+  if (r_inicial % mdc != 0){
+    ERRO = 1;
+    *r = -1;
+    *m = -1;
+    return;
+  }
+
+  a_inicial /= mdc;
+  r_inicial /= mdc;
+  m_inicial /= mdc;
+
+  inverso_a = inverso_modulo(a_inicial, m_inicial);
+  
+  if (inverso_a == 0){
+    ERRO = 1;
+    *r = -1;
+    *m = -1;
+    return;
+  }
+
+  r_inicial *= inverso_a;
+  r_inicial = r_inicial % m_inicial;
+
+  *r = r_inicial;
+  *m = m_inicial;
 }
 
 int teorema_resto_chines(int n) {
@@ -38,9 +78,10 @@ int teorema_resto_chines(int n) {
   int M_grande = 1, r[n], m[n];
   for(int i = 0; i < n; i++) {
     interpretar(&r[i], &m[i]);
-    scanf("%d %d", &r[i], &m[i]);
     M_grande *= m[i];
   }
+
+  if (ERRO) return -1;
 
   int solucao = 0;
   for(int i = 0; i < n; i++) {
