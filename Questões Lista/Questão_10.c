@@ -41,10 +41,10 @@ void interpretar(int *r, int *m) {
     return;
   }
 
-  r_inicial = (m_inicial - r_inicial % m_inicial) % m_inicial;
-  a_inicial = (m_inicial - a_inicial % m_inicial) % m_inicial;
+  r_inicial = (m_inicial + r_inicial % m_inicial) % m_inicial;
+  a_inicial = (m_inicial + a_inicial % m_inicial) % m_inicial;
 
-  mdc = mdc_diofantino(a_inicial, r_inicial, &s, &t);
+  mdc = mdc_diofantino(a_inicial, m_inicial, &s, &t);
 
   if (r_inicial % mdc != 0){
     ERRO = 1;
