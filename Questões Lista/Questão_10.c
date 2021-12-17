@@ -18,34 +18,46 @@ Se 1:
 int ERRO = 0;
 
 int main() {
+  //instrucoes para o scanf:
   printf("Digite o número de congruências: ");
   int n; scanf("%d", &n);
   int solucao = teorema_resto_chines(n);
+  //caso haja erro, eh avisado:
   if(ERRO) {
     printf("O problema não pode ser resolvido pelo teorema do resto chinês ou não tem solução\n");
   }
+  //senao, eh printada a solucao:
   else {
     printf("x é igual à %d", solucao);
   }
 }
 
+//a funcao serve para "padronizar" congruencias do tipo ax congruente a r (mod m),
+//transformando em uma congruencia equivalente no formado x congruente a k (mod n),
+//onde 0 < k < n, n > 1
 void interpretar(int *r, int *m) {
+  //declarando as variaveis necessarias para fazer a padronizacao:
+  //ax congruente a r (mod m)
   int a_inicial, r_inicial, m_inicial, inverso_a, mdc;
   int s, t;
   scanf("%d %d %d", &a_inicial, &r_inicial, &m_inicial);
 
-  if (m_inicial <= 0){
+  //caso m seja invalido, ha erro:
+  if (m_inicial <= q){
     ERRO = 1;
     *r = -1;
     *m = -1;
     return;
   }
-
+  
+  //padronizando os valores equivalentes e positivos:
   r_inicial = (m_inicial + r_inicial % m_inicial) % m_inicial;
   a_inicial = (m_inicial + a_inicial % m_inicial) % m_inicial;
 
+  //calculando o mdc entre a e m:
   mdc = mdc_diofantino(a_inicial, m_inicial, &s, &t);
 
+  //se o mdc nao divide r, ha erro:
   if (r_inicial % mdc != 0){
     ERRO = 1;
     *r = -1;
@@ -53,22 +65,27 @@ void interpretar(int *r, int *m) {
     return;
   }
 
+  //dividindo os numeros pelo mdc de a e m:
   a_inicial /= mdc;
   r_inicial /= mdc;
   m_inicial /= mdc;
 
+  //calculando o inverso de a (mod m):
   inverso_a = inverso_modulo(a_inicial, m_inicial);
   
+  //se nao tem inverso, ha erro:
   if (inverso_a == 0){
     ERRO = 1;
     *r = -1;
     *m = -1;
     return;
   }
-
+  
+  //achando o novo valor padronizado de r:
   r_inicial *= inverso_a;
   r_inicial = r_inicial % m_inicial;
 
+  //designando os novos valores de a e m:
   *r = r_inicial;
   *m = m_inicial;
 }
