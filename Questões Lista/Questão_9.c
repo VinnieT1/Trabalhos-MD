@@ -29,6 +29,7 @@ int main() {
   }
 }
 
+//explicacao na questao 10 (generalizacao)
 void interpretar(int *r, int *m) {
   int a_inicial, r_inicial, m_inicial, inverso_a, mdc;
   int s, t;
