@@ -764,7 +764,7 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
 ```
 * [Link](https://github.com/VinnieT1/Trabalhos-MD/blob/main/Quest%C3%B5es%20Lista/Quest%C3%A3o_9.c)
 #### Explicação
-O Teorema Chinês do resto resolve sistemas de congruências. É possível encontrar uma solução desse sistema pelo Teorema Chinês do Resto, caso
+O Teorema Chinês do Resto resolve sistemas de congruências. É possível encontrar uma solução desse sistema pelo Teorema Chinês do Resto, caso
 as congruências sejam no formato ax congruente a r (mod m) e os m sejam primos entre si. A solução do sistema é um número x igual a M1.s1.r1 +
 M2.s2.r2 + ..., onde Mk é o produto dos m dividido por mk, sk é a solução das congruências Mk.x congruente a 1 (mod mk) e rk são os r das
 congruências. Nessa questão, o sistema de congruências é formado por apenas 3 congruências.
