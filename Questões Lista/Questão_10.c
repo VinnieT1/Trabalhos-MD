@@ -90,16 +90,23 @@ void interpretar(int *r, int *m) {
   *m = m_inicial;
 }
 
+//retorna -1 caso nao haja solucao, caso contrario, retorna uma solucao:
 int teorema_resto_chines(int n) {
+  //instrucao de input:
   printf("Digite as %d congruências: \n", n);
   int M_grande = 1, r[n], m[n];
+  
+  //obtendo os inputs e padronizando:
+  //obtendo tambem o produto de todos os m das congruencias:
   for(int i = 0; i < n; i++) {
     interpretar(&r[i], &m[i]);
     M_grande *= m[i];
   }
 
+  //caso haja erro, eh retornado -1:
   if (ERRO) return -1;
 
+  //obtendo a solucao:
   int solucao = 0;
   for(int i = 0; i < n; i++) {
     int M = M_grande / m[i];
@@ -111,6 +118,7 @@ int teorema_resto_chines(int n) {
       ERRO = 1;
     solucao += s * M * r[i];
   }
+  //retornando a solucao entre 0 e M_grande:
   return solucao % M_grande;
 }
 
