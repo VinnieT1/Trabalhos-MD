@@ -18,12 +18,15 @@ Se 1:
 int ERRO = 0;
 
 int main() {
+  //instrucao de input:
   print("Digite as congruências:\n");
   int n = 3;
   int solucao = teorema_resto_chines(n);
+  //se ha algum erro, eh printado que nao pode ser resolvido:
   if(ERRO) {
     printf("O problema não pode ser resolvido pelo teorema do resto chinês ou não tem solução\n");
   }
+  //caso contrario, eh printada uma solucao:
   else {
     printf("x é igual à %d", solucao);
   }
@@ -74,6 +77,7 @@ void interpretar(int *r, int *m) {
   *m = m_inicial;
 }
 
+//explicacao na questao 10 (generalizacao)
 int teorema_resto_chines(int n) {
   printf("Digite as %d congruências: \n", n);
   int M_grande = 1, r[n], m[n];
