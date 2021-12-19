@@ -626,17 +626,21 @@ Se 1:
 int ERRO = 0;
 
 int main() {
+  //instrucao de input:
   print("Digite as congruências:\n");
   int n = 3;
   int solucao = teorema_resto_chines(n);
+  //se ha algum erro, eh printado que nao pode ser resolvido:
   if(ERRO) {
     printf("O problema não pode ser resolvido pelo teorema do resto chinês ou não tem solução\n");
   }
+  //caso contrario, eh printada uma solucao:
   else {
     printf("x é igual à %d", solucao);
   }
 }
 
+//explicacao na questao 10 (generalizacao)
 void interpretar(int *r, int *m) {
   int a_inicial, r_inicial, m_inicial, inverso_a, mdc;
   int s, t;
@@ -681,6 +685,7 @@ void interpretar(int *r, int *m) {
   *m = m_inicial;
 }
 
+//explicacao na questao 10 (generalizacao)
 int teorema_resto_chines(int n) {
   printf("Digite as %d congruências: \n", n);
   int M_grande = 1, r[n], m[n];
@@ -763,7 +768,6 @@ int mdc_diofantino(int a, int b, int *s, int *t) {
 ### Questão 10
 10. Generalize o programa da questão anterior para funcionar com n congruências ao invés de somente 3, onde n será dado pelo usuário.	
 ```c
-		       
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -856,16 +860,23 @@ void interpretar(int *r, int *m) {
   *m = m_inicial;
 }
 
+//retorna -1 caso nao haja solucao, caso contrario, retorna uma solucao:
 int teorema_resto_chines(int n) {
+  //instrucao de input:
   printf("Digite as %d congruências: \n", n);
   int M_grande = 1, r[n], m[n];
+  
+  //obtendo os inputs e padronizando:
+  //obtendo tambem o produto de todos os m das congruencias:
   for(int i = 0; i < n; i++) {
     interpretar(&r[i], &m[i]);
     M_grande *= m[i];
   }
 
+  //caso haja erro, eh retornado -1:
   if (ERRO) return -1;
 
+  //obtendo a solucao:
   int solucao = 0;
   for(int i = 0; i < n; i++) {
     int M = M_grande / m[i];
@@ -877,6 +888,7 @@ int teorema_resto_chines(int n) {
       ERRO = 1;
     solucao += s * M * r[i];
   }
+  //retornando a solucao entre 0 e M_grande:
   return solucao % M_grande;
 }
 
